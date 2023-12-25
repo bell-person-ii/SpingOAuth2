@@ -1,9 +1,9 @@
-package me.oauth2.practice.jwt.filter;
+package me.oauth2.practice.global.jwt.filter;
 
 import me.oauth2.practice.domain.User;
+import me.oauth2.practice.global.jwt.JwtService;
+import me.oauth2.practice.global.jwt.utils.PasswordUtil;
 import me.oauth2.practice.repository.UserRepository;
-import me.oauth2.practice.jwt.JwtService;
-import me.oauth2.practice.jwt.utils.PasswordUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

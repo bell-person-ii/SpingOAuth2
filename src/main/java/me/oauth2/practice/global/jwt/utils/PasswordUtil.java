@@ -1,4 +1,4 @@
-package me.oauth2.practice.jwt.utils;
+package me.oauth2.practice.global.jwt.utils;
 
 import java.util.Random;
 

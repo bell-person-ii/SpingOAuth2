@@ -1,4 +1,4 @@
-package me.oauth2.practice.jwt;
+package me.oauth2.practice.global.jwt;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -7,34 +7,37 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import me.oauth2.practice.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 import java.util.Optional;
 
+
 @Service
 @RequiredArgsConstructor
 @Getter
 @Slf4j
+@ComponentScan("me.oauth2.practice.")
 public class JwtService {
 
     private final UserRepository userRepository;
 
-    @Value("vjewovjeovjwoevjopwevjopwejvopejvoejwvweopjvowejvpe")
-    private String secretKey;
+    @Value("${jwt.secretKey}")
+    private static String secretKey;
 
-    @Value("3600000")
-    private Long accessTokenExpirationPeriod;
+    @Value("${jwt.access.expiration}")
+    private static Long accessTokenExpirationPeriod;
 
-    @Value("1209600000")
-    private Long refreshTokenExpirationPeriod;
+    @Value("${jwt.refresh.expiration}")
+    private static Long refreshTokenExpirationPeriod;
 
-    @Value("Authorization")
-    private String accessHeader;
+    @Value("${jwt.access.header}")
+    private static String accessHeader;
 
-    @Value("Authorization-refresh")
-    private String refreshHeader;
+    @Value("${jwt.refresh.header}")
+    private static String refreshHeader;
 
     private static final String ACCESS_TOKEN_SUBJECT = "AccessToken";
     private static final String REFRESH_TOKEN_SUBJECT = "RefreshToken";
